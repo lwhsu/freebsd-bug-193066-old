@@ -1,85 +1,127 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
      The FreeBSD Documentation Project
+     The FreeBSD Traditional Chinese Project
 
      $FreeBSD: head/zh_TW.UTF-8/books/handbook/cutting-edge/chapter.xml 44974 2014-05-29 16:48:07Z lwhsu $
-     Original revision: 1.225
+     Original revision: 46080
 -->
-<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="cutting-edge">
-  <info><title>更新、升級 FreeBSD</title>
+<chapter xmlns="http://docbook.org/ns/docbook"
+  xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0"
+  xml:id="updating-upgrading">
+
+  <info>
+    <title>更新、升級 FreeBSD</title>
+
     <authorgroup>
-      <author><personname><firstname>Jim</firstname><surname>Mock</surname></personname><contrib>Restructured, reorganized, and parts updated by </contrib></author>
+      <author>
+	<personname>
+	  <firstname>Jim</firstname>
+	  <surname>Mock</surname>
+	</personname>
+	<contrib>Restructured, reorganized, and parts updated
+	  by </contrib>
+      </author>
       <!-- Mar 2000 -->
     </authorgroup>
-    <authorgroup>
-      <author><personname><firstname>Jordan</firstname><surname>Hubbard</surname></personname><contrib>Original work by </contrib></author>
-      <author><personname><firstname>Poul-Henning</firstname><surname>Kamp</surname></personname></author>
-      <author><personname><firstname>John</firstname><surname>Polstra</surname></personname></author>
-      <author><personname><firstname>Nik</firstname><surname>Clayton</surname></personname></author>
-    </authorgroup>
-    
-  </info>
 
-  
+    <authorgroup>
+      <author>
+	<personname>
+	  <firstname>Jordan</firstname>
+	  <surname>Hubbard</surname>
+	</personname>
+	<contrib>Original work by </contrib>
+      </author>
+
+      <author>
+	<personname>
+	  <firstname>Poul-Henning</firstname>
+	  <surname>Kamp</surname>
+	</personname>
+      </author>
+
+      <author>
+	<personname>
+	  <firstname>John</firstname>
+	  <surname>Polstra</surname>
+	</personname>
+      </author>
+
+      <author>
+	<personname>
+	  <firstname>Nik</firstname>
+	  <surname>Clayton</surname>
+	</personname>
+      </author>
+    </authorgroup>
+  </info>
 
   <sect1 xml:id="cutting-edge-synopsis">
     <title>概述</title>
 
     <para>&os; 是個持續發展的作業系統。有些人喜歡官方釋出的版本，
-有些人則喜歡和官方最新的開發版本保持同步。然而即使是官方釋出的版本仍然時常有安全性更新或和其他緊急修復。無論使用哪種版本，&os;都提供所有必須的工具來讓系統保持最新，而且可以輕易升級不同版本。本章將描述如何追蹤開發版本，和保持&os;系統維持最新的基本工具
-
-      </para>
+      有些人則喜歡和官方最新的開發版本保持同步。
+      然而即使是官方釋出的版本仍然時常有安全性更新或和其他緊急修復。
+      無論使用哪種版本，&os; 都提供所有必須的工具來讓系統保持最新，
+      而且可以輕易升級不同版本。本章將描述如何追蹤開發版本，和保持 &os;
+      系統維持最新的基本工具。</para>
 
     <para>讀完這章，您將了解︰</para>
- <itemizedlist>
+
+    <itemizedlist>
       <listitem>
 	<para>如何使用
 	  <application>freebsd-update</application>,
 	  <application>Subversion</application>, 或
-	  <application>CTM</application>讓&os;系統保持在最新的版本.</para>
+	  <application>CTM</application> 讓 &os; 系統保持在最新的版本。</para>
       </listitem>
 
       <listitem>
-	<para>如何比較安裝系統和原始複製的狀態</para>
-
+	<para>如何比較安裝系統和原始複製的狀態。</para>
       </listitem>
 
       <listitem>
 	<para>如何使用
 	  <application>Subversion</application>或是documentation
-	  ports<!--, and <application>Docsnap</application>-->來使已安裝的文件保持最新。</para>
+	  ports<!--, and <application>Docsnap</application>-->
+          來使安裝的文件保持最新。</para>
       </listitem>
 
       <listitem>
-	<para>兩個開發分支的差異：&os.stable; and &os.current;.</para>
+	<para>兩個開發分支的差異：&os.stable; 和 &os.current;。</para>
 
       </listitem>
 
       <listitem>
-	<para>如何重新編譯和重新安裝整個基礎系統</para>
-
+	<para>如何重新編譯和重新安裝整個基礎系統。</para>
       </listitem>
     </itemizedlist>
-
 
     <para>在開始閱讀這章之前，您需要︰</para>
 
     <itemizedlist>
-      <listitem><para>先設好你的網路(<xref linkend="advanced-networking"/>)。
-	</para>
+      <listitem>
+	<para>設定好你的網路
+	  (<xref linkend="advanced-networking"/>)。</para>
       </listitem>
-      <listitem><para>知道如何透過 port/package 安裝第三方軟體(<xref linkend="ports"/>)。</para></listitem>
-    </itemizedlist>
-    <note>
-      <para>本章中， 使用<command>svn</command>來獲得和更新&os;原始碼。
-為了能使用他，首先要安裝 <package>devel/subversion</package> port或 package.</para>
-    </note>
 
+      <listitem>
+	<para>知道如何安裝第三方軟體
+	  (<xref linkend="ports"/>).</para>
+      </listitem>
+    </itemizedlist>
+
+    <note>
+      <para>本章中，使用 <command>svn</command> 來獲得和更新 &os; 原始碼。
+        為了能使用他，首先要安裝 <package>devel/subversion</package>
+        port 或 package。</para>
+    </note>
   </sect1>
 
   <sect1 xml:id="updating-upgrading-freebsdupdate">
     <info>
-      <title>&os; 更新</title>
+      <title>&os; Update</title>
 
       <authorgroup>
 	<author>
@@ -110,13 +152,16 @@
       <see>updating-upgrading</see>
     </indexterm>
 
-    <para>即時應用安全性更新與升級作業系統到新的發行版本對一個持續運作的系統是重要的。&os; 包括一個叫 <command>freebsd-update</command> 的應用程式可以執行這兩項任務。</para> 
-    <para>這個應用程式支援&os;二進制安全性與和錯誤更新，
-不需要手動編譯和安裝修復或新核心。
-安全性團隊目前支援的所有架構和發行版都可以取得二進制更新。
-目前支援的發行版列表和他們的支援期限都列於
-      <uri
-	xlink:href="http://www.FreeBSD.org/security/">http://www.FreeBSD.org/security/</uri>。</para>
+    <para>管理一個持續運作的系統裡，
+      及時應用安全性更新與升級作業系統到新的發行版本是很重要的。
+      &os; 內建一個指令 <command>freebsd-update</command>
+      就是用來執行這兩項任務。</para>
+
+    <para>這個工具程式支援 &os; 二進制安全性與和錯誤更新，
+      不需要手動編譯、安裝修補程式或新核心。
+      目前安全性團隊支援的所有架構和發行版都可以取得二進制更新。
+      支援的發行版列表和他們的支援期限都列於 <uri
+	xlink:href="http://www.FreeBSD.org/security/">http://www.FreeBSD.org/security/</uri>.</para>
 
     <para>這個應用程式也支援作業系統升級到次要的發行版本和升級到令一個發行版分支升級到新的發行版本前，要檢查他的發行宣告，因為他包含發行版本相關的重要資訊。發行公告可以由<uri
 	xlink:href="http://www.FreeBSD.org/releases/">http://www.FreeBSD.org/releases/</uri>取得。</para>
