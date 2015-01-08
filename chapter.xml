@@ -4,7 +4,7 @@
      The FreeBSD Traditional Chinese Project
 
      $FreeBSD: head/zh_TW.UTF-8/books/handbook/cutting-edge/chapter.xml 44974 2014-05-29 16:48:07Z lwhsu $
-     Original revision: 46080
+     Original revision: r46080
 -->
 <chapter xmlns="http://docbook.org/ns/docbook"
   xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0"
@@ -121,7 +121,7 @@
 
   <sect1 xml:id="updating-upgrading-freebsdupdate">
     <info>
-      <title>&os; Update</title>
+      <title>&os; 更新</title>
 
       <authorgroup>
 	<author>
@@ -954,7 +954,7 @@ before running "/usr/sbin/freebsd-update install"</screen>
 	<listitem>
 	  <para>同步 &os.current; 原始碼。
 通常使用<link linkend="svn">svn</link>來檢查<xref linkend="svn-mirrors"/>
-列出的Subversion鏡像站<literal>head</literal>分支的-CURRENT 原始碼</para>。
+列出的Subversion鏡像站<literal>head</literal>分支的-CURRENT 原始碼。</para>
 
 	  <para>網路很慢或是受到限制的使用者可以如<xref linkend="ctm"/>
 所描述的，使用CTM來替代，但是他並不如<application>svn</application> 
