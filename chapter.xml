@@ -355,7 +355,7 @@ Uninstalling updates... done.</screen>
 
       <para>當收到這個指令時，
 	<command>freebsd-update</command>將會評估設定檔和目前的系統來收集升級需要的資訊。
-螢幕上的清單會顯示偵測到或沒偵測到哪些元件。例如： </para> 
+螢幕上的清單會顯示偵測到或沒偵測到哪些元件。例如： </para>
       <screen>Looking up update.FreeBSD.org mirrors... 1 mirrors found.
 Fetching metadata signature for 9.0-RELEASE from update1.FreeBSD.org... done.
 Fetching metadata index... done.
@@ -386,7 +386,7 @@ This kernel will not be updated: you MUST update the kernel manually
 before running "/usr/sbin/freebsd-update install"</screen>
 
       <para>這個警告可以安全地忽略，升級過程將會立即使用更新過的
-	 <filename>GENERIC</filename>核心 </para> 
+	 <filename>GENERIC</filename>核心 </para>
       <para>一旦所有的修補都被下載到本地的系統，
 	它們將會被運用。這個過程可能會花點時間，取決於機器的速度和工作量
 	設定檔將會被合併。
@@ -416,7 +416,7 @@ before running "/usr/sbin/freebsd-update install"</screen>
 使用<filename>GENERIC</filename>核心重新開機前，
 	  確定他包含所有系統開機需要的驅動程式而且連接網路，
 	  特別是當執行的自訂核心包含核心模組提供內建功能時，
-確定暫時地使用<filename>/boot/loader.conf</filename> 工具載入這些模組到<filename>GENERIC</filename>核心。 
+確定暫時地使用<filename>/boot/loader.conf</filename> 工具載入這些模組到<filename>GENERIC</filename>核心。
 	  建議停用非必須的服務和磁碟與網路掛載直到升級程序完成。
 	  </para>
       </warning>
@@ -571,7 +571,7 @@ before running "/usr/sbin/freebsd-update install"</screen>
 	  <package>security/snort</package>。當
 	  <command>freebsd-update</command> 儲存資料在磁碟裡，是有被竄改的可能性
 	  可以使用<varname>kern.securelevel</varname>
-或是將沒有在使用的<command>freebsd-update</command> 
+或是將沒有在使用的<command>freebsd-update</command>
 的資料儲存在唯讀檔案系統來減少這樣的可能性，
 比較好的解決方法是將系統和安全的磁碟，例如
 <acronym>DVD</acronym>或是安全的外接
@@ -674,7 +674,7 @@ before running "/usr/sbin/freebsd-update install"</screen>
       <screen>&prompt.root; <userinput>cd /usr/doc/en_US.ISO8859-1</userinput>
 &prompt.root; <userinput>make install clean</userinput></screen>
 
-      <para>另一個更新文件的方法是在 <filename>/usr/doc</filename> 
+      <para>另一個更新文件的方法是在 <filename>/usr/doc</filename>
 或特定語言的子目錄執行:</para>
 
       <screen>&prompt.root; <userinput>make update</userinput></screen>
@@ -957,7 +957,7 @@ before running "/usr/sbin/freebsd-update install"</screen>
 列出的Subversion鏡像站<literal>head</literal>分支的-CURRENT 原始碼。</para>
 
 	  <para>網路很慢或是受到限制的使用者可以如<xref linkend="ctm"/>
-所描述的，使用CTM來替代，但是他並不如<application>svn</application> 
+所描述的，使用CTM來替代，但是他並不如<application>svn</application>
 一樣值得信賴， <application>svn</application> 是建議的同步原始碼的方法。</para>
 	</listitem>
 
